@@ -56,15 +56,55 @@
 		8DDCD63B2C6642F00099A008 /* HogwartsApp */ = {
 			isa = PBXGroup;
 			children = (
-				8DDCD63C2C6642F00099A008 /* AppDelegate.swift */,
-				8DDCD63E2C6642F00099A008 /* SceneDelegate.swift */,
-				8DDCD6402C6642F00099A008 /* ViewController.swift */,
-				8DDCD6422C6642F00099A008 /* Main.storyboard */,
-				8DDCD6452C6642F20099A008 /* Assets.xcassets */,
-				8DDCD6472C6642F20099A008 /* LaunchScreen.storyboard */,
-				8DDCD64A2C6642F20099A008 /* Info.plist */,
+				8DDCD6542C66435C0099A008 /* Models */,
+				8DDCD6522C6643360099A008 /* ViewControllers */,
+				8DDCD6512C6643270099A008 /* Storyboards */,
+				8DDCD6502C66431A0099A008 /* App */,
+				8DDCD6532C6643440099A008 /* Resources */,
 			);
 			path = HogwartsApp;
+			sourceTree = "<group>";
+		};
+		8DDCD6502C66431A0099A008 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8DDCD63C2C6642F00099A008 /* AppDelegate.swift */,
+				8DDCD63E2C6642F00099A008 /* SceneDelegate.swift */,
+				8DDCD64A2C6642F20099A008 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8DDCD6512C6643270099A008 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8DDCD6422C6642F00099A008 /* Main.storyboard */,
+				8DDCD6472C6642F20099A008 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8DDCD6522C6643360099A008 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8DDCD6402C6642F00099A008 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8DDCD6532C6643440099A008 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DDCD6452C6642F20099A008 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8DDCD6542C66435C0099A008 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,12 +334,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8K9SVXDGK9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HogwartsApp/Info.plist;
+				INFOPLIST_FILE = HogwartsApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +347,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NikolayD.HogwartsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,12 +366,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8K9SVXDGK9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HogwartsApp/Info.plist;
+				INFOPLIST_FILE = HogwartsApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +379,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = NikolayD.HogwartsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
