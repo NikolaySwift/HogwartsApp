@@ -5,4 +5,8 @@
 //  Created by NikolayD on 09.08.2024.
 //
 
-import Foundation
+import UIKit
+
+final class CategoryCell: UICollectionViewCell {
+    @IBOutlet var categoryLabel: UILabel!
+}
