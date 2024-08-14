@@ -48,7 +48,8 @@ final class MainViewController: UICollectionViewController {
             return
         }
         guard let house = sender as? House else { return }
-        charactersListVC.fetchCharacters(fromHouse: house)
+        charactersListVC.houseName = house.rawValue
+        charactersListVC.fetchCharacters(from: house)
     }
 
 }
@@ -60,7 +61,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width - 48, height: 100)
+        CGSize(width: UIScreen.main.bounds.width - 60, height: 140)
     }
 }
 
