@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UICollectionViewController {
+final class MainViewController: UICollectionViewController {
     private let categories = DataStore.shared.categories
 
     // MARK: - UICollectionViewDataSource
@@ -30,14 +30,7 @@ class MainViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         
-        cell.categoryLabel.text = categories[indexPath.item].rawValue
-        cell.backgroundColor = switch categories[indexPath.item] {
-        case .gryffindor: .systemRed
-        case .slytherin: .systemGreen
-        case .hufflepuff: .systemBlue
-        case .ravenclaw: .systemYellow
-        }
-        cell.layer.cornerRadius = 20
+        cell.configure(with: categories[indexPath.item])
         
         return cell
     }
@@ -47,25 +40,15 @@ class MainViewController: UICollectionViewController {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        fetchCharacters(fromHouse: categories[indexPath.item])
+        performSegue(withIdentifier: "showCharacters", sender: categories[indexPath.item])
     }
     
-    private func fetchCharacters(fromHouse house: House) {
-        URLSession.shared.dataTask(with: house.url) { data, response, error in
-            guard let data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            do {
-                let characters = try JSONDecoder().decode(
-                    [HogwartsCharacter].self,
-                    from: data
-                )
-                print(characters.first ?? "No character")
-            } catch {
-                print(error.localizedDescription)
-            }
-        }.resume()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let charactersListVC = segue.destination as? CharactersListViewController else {
+            return
+        }
+        guard let house = sender as? House else { return }
+        charactersListVC.fetchCharacters(fromHouse: house)
     }
 
 }
