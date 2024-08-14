@@ -148,6 +148,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-HC-A4u">
+                                <rect key="frame" x="150" y="220.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tze-2M-DVr"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -156,11 +159,14 @@
                             <constraint firstItem="UPq-eq-Ktg" firstAttribute="top" secondItem="9pr-Nu-gPL" secondAttribute="bottom" constant="8" id="Izg-ft-PWM"/>
                             <constraint firstItem="UPq-eq-Ktg" firstAttribute="leading" secondItem="tze-2M-DVr" secondAttribute="leading" constant="16" id="Keh-nM-9mf"/>
                             <constraint firstItem="9pr-Nu-gPL" firstAttribute="centerX" secondItem="6fb-cs-5wY" secondAttribute="centerX" id="UE8-23-PsJ"/>
+                            <constraint firstItem="1mc-HC-A4u" firstAttribute="top" secondItem="tze-2M-DVr" secondAttribute="top" constant="108" id="WM8-fR-0KN"/>
+                            <constraint firstItem="1mc-HC-A4u" firstAttribute="centerX" secondItem="6fb-cs-5wY" secondAttribute="centerX" id="ZN5-iV-PjM"/>
                             <constraint firstItem="tze-2M-DVr" firstAttribute="trailing" secondItem="UPq-eq-Ktg" secondAttribute="trailing" constant="16" id="rCN-aV-BM8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CharacterName" id="V0L-fp-UXn"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="1mc-HC-A4u" id="E8F-m0-b7W"/>
                         <outlet property="characterImageView" destination="9pr-Nu-gPL" id="XM4-L2-kSt"/>
                         <outlet property="descriptionLabel" destination="UPq-eq-Ktg" id="zW8-0c-2dA"/>
                     </connections>

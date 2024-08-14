@@ -7,23 +7,37 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
 
+    @IBOutlet var characterImageView: UIImageView!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
+    var character: HogwartsCharacter!
+    
+    private let networkManager = NetworkManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        navigationItem.title = character.name
+        descriptionLabel.text = character.description
+        
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        if !character.image.isEmpty {
+            networkManager.fetchImage(from: URL(string: character.image)!) { [weak self] result in
+                guard let self else { return }
+                switch result {
+                case .success(let imageData):
+                    characterImageView.image = UIImage(data: imageData)
+                    activityIndicator.stopAnimating()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
