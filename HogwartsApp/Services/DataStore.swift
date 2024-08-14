@@ -12,6 +12,7 @@ enum House: String, CaseIterable {
     case slytherin = "Slytherin"
     case hufflepuff = "Hufflepuff"
     case ravenclaw = "Ravenclaw"
+    case staff = "Hogwarts"
     
     var url: URL {
         switch self {
@@ -23,6 +24,8 @@ enum House: String, CaseIterable {
             return URL(string: "https://hp-api.herokuapp.com/api/characters/house/hufflepuff")!
         case .ravenclaw:
             return URL(string: "https://hp-api.herokuapp.com/api/characters/house/ravenclaw")!
+        case .staff:
+            return URL(string: "https://hp-api.herokuapp.com/api/characters/staff")!
         }
     }
 }
