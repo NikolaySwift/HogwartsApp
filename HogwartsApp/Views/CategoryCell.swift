@@ -8,5 +8,14 @@
 import UIKit
 
 final class CategoryCell: UICollectionViewCell {
-    @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var houseImageView: UIImageView!
+    
+    func configure(with house: House) {
+        let houseImage = UIImage(named: house.rawValue)
+        houseImageView.image = houseImage
+        layer.cornerRadius = 20
+        if house == .staff {
+            houseImageView.contentMode = .scaleAspectFit
+        }
+    }
 }
