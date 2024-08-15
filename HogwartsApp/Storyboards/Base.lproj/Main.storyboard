@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hogwarts Characters-->
+        <!--Hogwarts-->
         <scene sceneID="rV6-o7-v0R">
             <objects>
                 <collectionViewController id="b20-Lw-5Up" customClass="MainViewController" customModule="HogwartsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,7 +52,7 @@
                             <outlet property="delegate" destination="b20-Lw-5Up" id="0tZ-eW-GUa"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Hogwarts Characters" id="e32-kb-nJu"/>
+                    <navigationItem key="navigationItem" title="Hogwarts" id="e32-kb-nJu"/>
                     <connections>
                         <segue destination="6uk-cG-fH0" kind="show" identifier="showCharacters" id="B8B-eG-QD2"/>
                     </connections>
@@ -199,7 +199,7 @@
     </scenes>
     <resources>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

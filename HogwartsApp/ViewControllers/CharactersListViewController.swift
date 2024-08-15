@@ -18,7 +18,9 @@ final class CharactersListViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 100
         
-        navigationItem.title = houseName
+        navigationItem.title = houseName == House.staff.rawValue
+            ? houseName + " staff"
+            : houseName
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
