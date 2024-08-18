@@ -53,7 +53,12 @@ final class CharactersListViewController: UITableViewController {
                     self.characters = characters.filter{ !$0.image.isEmpty }
                     tableView.reloadData()
                 case .failure(let error):
-                    print(error)
+                    switch error {
+                    case .noData(let message):
+                        print(error, message)
+                    default:
+                        print(error)
+                    }
                 }
             }
     }

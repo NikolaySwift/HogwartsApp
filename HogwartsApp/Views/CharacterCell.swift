@@ -41,7 +41,12 @@ final class CharacterCell: UITableViewCell {
                 characterImageView.image = UIImage(data: imageData)
                 activityIndicator.stopAnimating()
             case .failure(let error):
-                print(error)
+                switch error {
+                case .noData(let message):
+                    print(error, message)
+                default:
+                    print(error)
+                }
             }
         }
     }

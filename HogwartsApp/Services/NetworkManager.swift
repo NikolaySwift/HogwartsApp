@@ -48,7 +48,7 @@ final class NetworkManager {
     ) {
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else {
-                completion(.failure(.noData("Can not fetch image")))
+                completion(.failure(.noData("No error description")))
                 return
             }
             DispatchQueue.main.async {

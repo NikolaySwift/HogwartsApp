@@ -23,6 +23,8 @@ final class DetailsViewController: UIViewController {
         navigationItem.title = character.name
         descriptionLabel.text = character.description
         
+        activityIndicator.style = .large
+        activityIndicator.center = characterImageView.center
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
@@ -34,7 +36,12 @@ final class DetailsViewController: UIViewController {
                     characterImageView.image = UIImage(data: imageData)
                     activityIndicator.stopAnimating()
                 case .failure(let error):
-                    print(error)
+                    switch error {
+                    case .noData(let message):
+                        print(error, message)
+                    default:
+                        print(error)
+                    }
                 }
             }
         }
