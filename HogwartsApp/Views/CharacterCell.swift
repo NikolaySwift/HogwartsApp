@@ -19,14 +19,14 @@ final class CharacterCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var actorLabel: UILabel!
     
-    private let networkManager = NetworkManager.shared
+    private let networkManager = AlamofireNetworkManager.shared
     
     func configure(with character: HogwartsCharacter) {
         nameLabel.text = character.name
         actorLabel.text = character.actor
         let activityIndicator = showSpinner(in: characterImageView)
         
-        networkManager.fetchImage(from: URL(string: character.image)!) { [weak self] result in
+        networkManager.fetchData(from: character.image) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let imageData):
@@ -41,12 +41,7 @@ final class CharacterCell: UITableViewCell {
                 characterImageView.image = UIImage(data: imageData)
                 activityIndicator.stopAnimating()
             case .failure(let error):
-                switch error {
-                case .noData(let message):
-                    print(error, message)
-                default:
-                    print(error)
-                }
+                print(error)
             }
         }
     }

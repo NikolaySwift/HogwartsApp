@@ -11,7 +11,7 @@ final class CharactersListViewController: UITableViewController {
     
     var houseName: String!
     
-    private let networkManager = NetworkManager.shared
+    private let networkManager = AlamofireNetworkManager.shared
     private var characters: [HogwartsCharacter] = []
 
     override func viewDidLoad() {
@@ -53,12 +53,7 @@ final class CharactersListViewController: UITableViewController {
                     self.characters = characters.filter{ !$0.image.isEmpty }
                     tableView.reloadData()
                 case .failure(let error):
-                    switch error {
-                    case .noData(let message):
-                        print(error, message)
-                    default:
-                        print(error)
-                    }
+                    print(error)
                 }
             }
     }

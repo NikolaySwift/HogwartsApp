@@ -21,6 +21,7 @@
 		8DDCD6592C664A9A0099A008 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD6582C664A9A0099A008 /* CategoryCell.swift */; };
 		8DDCD65C2C664BB40099A008 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCD65B2C664BB40099A008 /* DataStore.swift */; };
 		8DEAF9072C723D1D00AB1E64 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8DEAF9062C723D1D00AB1E64 /* Alamofire */; };
+		8DEAF9092C723DB400AB1E64 /* AlamofireNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEAF9082C723DB400AB1E64 /* AlamofireNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		8DDCD6552C66444D0099A008 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8DDCD6582C664A9A0099A008 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		8DDCD65B2C664BB40099A008 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		8DEAF9082C723DB400AB1E64 /* AlamofireNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				8DDCD65B2C664BB40099A008 /* DataStore.swift */,
 				8D0951312C6B8E90000B92A5 /* NetworkManager.swift */,
+				8DEAF9082C723DB400AB1E64 /* AlamofireNetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DEAF9092C723DB400AB1E64 /* AlamofireNetworkManager.swift in Sources */,
 				8D784F292C6B9F0E00250195 /* CharactersListViewController.swift in Sources */,
 				8DDCD6412C6642F00099A008 /* MainViewController.swift in Sources */,
 				8D784F2B2C6B9F3300250195 /* DetailsViewController.swift in Sources */,

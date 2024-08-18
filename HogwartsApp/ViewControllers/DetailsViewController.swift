@@ -15,7 +15,7 @@ final class DetailsViewController: UIViewController {
     
     var character: HogwartsCharacter!
     
-    private let networkManager = NetworkManager.shared
+    private let networkManager = AlamofireNetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +29,14 @@ final class DetailsViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         
         if !character.image.isEmpty {
-            networkManager.fetchImage(from: URL(string: character.image)!) { [weak self] result in
+            networkManager.fetchData(from: character.image) { [weak self] result in
                 guard let self else { return }
                 switch result {
                 case .success(let imageData):
                     characterImageView.image = UIImage(data: imageData)
                     activityIndicator.stopAnimating()
                 case .failure(let error):
-                    switch error {
-                    case .noData(let message):
-                        print(error, message)
-                    default:
-                        print(error)
-                    }
+                    print(error)
                 }
             }
         }
