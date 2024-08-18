@@ -15,7 +15,7 @@ final class MainViewController: UICollectionViewController {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        DataStore.shared.categories.count
+        categories.count
     }
     
     override func collectionView(

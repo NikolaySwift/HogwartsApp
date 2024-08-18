@@ -9,21 +9,20 @@ import Foundation
 
 enum NetworkError: Error {
     case invalidURL
-    case noData
+    case noData(String)
     case decodingError
 }
 
 final class NetworkManager {
     static let shared = NetworkManager()
     
-    func fetch<T: Decodable>(
-        _ type: T.Type,
+    func fetchCharacters(
         from url: URL,
-        completion: @escaping(Result<T, NetworkError>) -> Void
+        completion: @escaping(Result<[HogwartsCharacter], NetworkError>) -> Void
     ) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
-                completion(.failure(.noData))
+                completion(.failure(.noData(error?.localizedDescription ?? "No error description")))
                 return
             }
             
@@ -31,10 +30,10 @@ final class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
-                let dataFromServer = try decoder.decode(T.self, from: data)
+                let characters = try decoder.decode([HogwartsCharacter].self, from: data)
                 
                 DispatchQueue.main.async {
-                    completion(.success(dataFromServer))
+                    completion(.success(characters))
                 }
             } catch {
                 completion(.failure(.decodingError))
@@ -49,7 +48,7 @@ final class NetworkManager {
     ) {
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else {
-                completion(.failure(.noData))
+                completion(.failure(.noData("Can not fetch image")))
                 return
             }
             DispatchQueue.main.async {

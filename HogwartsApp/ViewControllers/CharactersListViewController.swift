@@ -40,15 +40,13 @@ final class CharactersListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath)
         guard let cell = cell as? CharacterCell else { return UITableViewCell() }
         
-        cell.configure(with: characters[indexPath.row], and: tableView.rowHeight)
+        cell.configure(with: characters[indexPath.row])
         
         return cell
     }
     
     func fetchCharacters(from house: House) {
-        networkManager.fetch(
-            [HogwartsCharacter].self,
-            from: house.url) { [weak self] result in
+        networkManager.fetchCharacters(from: house.url) { [weak self] result in
                 guard let self else { return }
                 switch result {
                 case .success(let characters):
@@ -59,5 +57,4 @@ final class CharactersListViewController: UITableViewController {
                 }
             }
     }
-
 }
